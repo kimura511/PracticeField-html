@@ -225,3 +225,38 @@ thおよびtdについては、borderとpaddingが使えるが、marginは使え
 テーブルの背景はtable,tr,tdの順で塗りつぶされる
 
 ### アクセシビリティーについて
+どんな人でも等しく情報を取得できること
+テーブルの場合は以下2点
+テーブルにキャプションをつける
+見出しせるとデータせるの関連性を明確にする
+
+#### テーブルにキャプションをつける
+<table>
+  <caption></caption>
+  <tr>
+    <td></td>
+  </tr>
+</table>
+キャプションタグは必ずテーブルタグの次の行に書く
+可能な限りつけてあげる
+
+#### テーブルにキャプションをつける
+thにidを振り、関連するtdにheaders要素を入れてあげる
+<table>
+	<caption>ホテルの予約状況</caption>
+	<tr>
+		<th id="row1">宿泊施設</th>
+		<th id="row2">6日</th>
+		<th id="row3">7日</th>
+		<th id="row4">8日</th>
+	</tr>
+	<tr>
+		<td headers="row1">グランドホテル</td>
+		<td headers="row2">○</td>
+		<td headers="row3">○</td>
+		<td headers="row4">×</td>
+	</tr>
+</table>
+
+scope要素も使える
+関連するセルが縦にあるか、横にあるかを示す。
