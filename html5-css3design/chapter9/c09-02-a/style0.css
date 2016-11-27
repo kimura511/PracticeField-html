@@ -7,18 +7,21 @@ body {
 	margin: 0 auto 0 auto;
 	max-width: 1000px;
 }
-section .container {
-	display: flex;
-	flex-flow: column;
+section .container{
+	display:flex;
+	flex-flow:column;
 }
-
 /*
 各パートにパディング、背景、テキスト色などを指定する
-<div class="container">の子要素に指定する
 */
 .header-inner {
 	padding: 10px 10px 0 10px;
 	background: #bad7f5;
+}
+.nav-inner {
+	padding: 10px 10px 0 10px;
+	color: #fff;
+	background: #0086f9;
 }
 main {
 	padding: 20px 10px 20px 10px;
@@ -39,60 +42,25 @@ main {
 	background: #bad7f5;
 }
 
-/* ヘッダー部 */
-.hamburger{
-	border:none;
-	width:50px;
-	height:50px;
-	background: url(../../images/humburger.png) no-repeat;
-	background-size: contain;
-}
-
-/* ナビゲーション */
-.navbar {
-	display: none;
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-	background: #565656;
-}
-.navbar li a {
-	display: block;
-	padding: 10px 8px;
-	color: #fff;
-	text-decoration: none;
-}
-.navbar li a:hover {
-	background: #fff;
-	color: #565656;
-}
-
 @media only screen and (min-width: 768px) {
-	section .container {
-		flex-flow: row;
+	section .container{
+		flex-flow:row;
 	}
-	main {
-		flex: 1 1 auto;
+	main{
+		flex:1 1 auto;
+		/*左右の切り替え*/
+		order:2;
 	}
-	.sidebar {
+	.sidebar{
 		flex: 0 0 340px;
-	}
-
-	/* ナビゲーション */
-	.hamburger {
-		display: none;
-	}
-	.navbar {
-		display: flex !important;
+		/*左右の切り替え*/		
+		order:1;
 	}
 }
 
 /* わかりやすくするために適用しているCSS */
 body {
 	color: #444;
-}
-h1 {
-	margin: 0;
 }
 main p:last-child {
 	margin-bottom: 0;

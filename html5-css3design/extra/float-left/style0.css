@@ -7,12 +7,8 @@ body {
 	margin: 0 auto 0 auto;
 	max-width: 1000px;
 }
-section .container {
-	display: flex;
-	flex-flow: column;
-}
 
-/*
+/* 
 各パートにパディング、背景、テキスト色などを指定する
 <div class="container">の子要素に指定する
 */
@@ -20,17 +16,17 @@ section .container {
 	padding: 10px 10px 0 10px;
 	background: #bad7f5;
 }
-main {
+.main-inner {
 	padding: 20px 10px 20px 10px;
 	background: #fffde3;
 
-	/*
+	/* 
 	 レイアウトのイメージをしやすいように高さを設定。
 	 通常のwebデザインではレイアウトで高さを指定しない
 	*/
 	height: 400px;
 }
-.sidebar {
+.sidebar-inner {
 	padding: 20px 10px 20px 10px;
 	background: #c0f5b9;
 }
@@ -40,11 +36,11 @@ main {
 }
 
 /* ヘッダー部 */
-.hamburger{
-	border:none;
-	width:50px;
-	height:50px;
-	background: url(../../images/humburger.png) no-repeat;
+.hamburger {
+	border: none;
+	width: 50px;
+	height: 50px;
+	background: url(../../images/hamburger.png) no-repeat;
 	background-size: contain;
 }
 
@@ -58,7 +54,7 @@ main {
 }
 .navbar li a {
 	display: block;
-	padding: 10px 8px;
+	padding: 10px 0;
 	color: #fff;
 	text-decoration: none;
 }
@@ -69,13 +65,19 @@ main {
 
 @media only screen and (min-width: 768px) {
 	section .container {
-		flex-flow: row;
+		overflow: hidden;
 	}
 	main {
-		flex: 1 1 auto;
+		float: right;
+		width: 100%;
+		margin-left: -340px; /* サイドバーの幅にマイナスをつける */
+	}
+	.main-inner {
+		margin-left: 340px; /* サイドバーの幅を指定 */
 	}
 	.sidebar {
-		flex: 0 0 340px;
+		float: left;
+		width: 340px; /* サイドバーの幅を指定 */
 	}
 
 	/* ナビゲーション */
@@ -83,7 +85,15 @@ main {
 		display: none;
 	}
 	.navbar {
-		display: flex !important;
+		overflow: hidden;
+		display: block !important;
+	}
+	.navbar li {
+		float: left;
+		width: 20%;
+	}
+	.navbar li a {
+		text-align: center;
 	}
 }
 
